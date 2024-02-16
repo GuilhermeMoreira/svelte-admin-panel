@@ -1,0 +1,26 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /button_count/{uid} {
+    	allow read, create, update:
+      	if request.auth != null && request.auth.uid == uid
+		}
+    match /settings/{user_uid} {
+    	allow read:
+      	if request.auth != null && 'user_'+request.auth.uid == user_uid
+    	allow create, update:
+      	if request.auth != null && 'user_'+request.auth.uid == user_uid &&
+        request.resource.data.keys().hasOnly(['name', 'theme']) &&
+        (request.resource.data.theme == 'dark' || request.resource.data.theme == 'light')
+		}
+    match /switch_example/{uid} {
+    	allow read, create, update:
+      	if request.auth != null && request.auth.uid == uid
+		}
+    match /form_test/{uid} {
+    	allow create, update: 
+      	if request.auth != null && request.auth.uid == uid &&
+        request.resource.data.keys().hasAll(['input_one', 'input_two', 'mandatory_check']) &&
+        request.resource.data.mandatory_check == '1'
+		}
+  }
+}
