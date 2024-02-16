@@ -1,7 +1,7 @@
 # Svelte Admin Panel
 
 Visit the demo at [svelte-admin-panel.web.app](https://svelte-admin-panel.web.app/).
-Go ahead and create an accont for gaining access to the [Components](https://svelte-admin-panel.web.app/components) page.
+Go ahead and create an accont for gaining access to the [Components](https://svelte-admin-panel.web.app/components) page (a fake email may be used, don't worry).
 
 ## Dependencies
 
@@ -42,7 +42,7 @@ To create an optimised version of the app:
 npm run build
 ```
 
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in the package.json's `dependencies`..
+You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in the package.json's `dependencies`.
 
 ## Deploy
 
